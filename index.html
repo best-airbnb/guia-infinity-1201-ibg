@@ -14,14 +14,14 @@
    ✏️  CONTENIDO EDITABLE  (bilingüe: español / inglés)
    - Cada texto traducible tiene la forma:  { es: "Hola", en: "Hello" }
    - Si un texto es igual en ambos idiomas (nombres, teléfonos, claves),
-     basta con un texto simple: "Infinity 1201"
+     basta con un texto simple: "Ventura Club House"
    - Si falta la versión "en", se muestra la de español.
    - Para agregar un elemento a una lista, copia una línea { ... }, y pégala.
    - Para ocultar una sección completa, deja su lista vacía: []
    - Iconos disponibles: llave, wifi, reloj, mapa, carro, puerta, ascensor,
      cocina, lavadora, tv, aire, ducha, cama, basura, silencio, fiesta,
      fumar, mascota, persona, comida, cafe, compras, salud, policia,
-     fuego, telefono, estrella, sol, check
+     fuego, telefono, estrella, sol, check, piscina, jacuzzi
    ===================================================================== */
 const CONFIG = {
   idiomaPorDefecto: "auto", // "es", "en" o "auto" (usa el idioma del teléfono del huésped)
@@ -50,8 +50,8 @@ const CONFIG = {
   acceso: {
     codigo: "9093#",                 // Código de la cerradura
     apartamento: { es: "Torre 1 · Apto 1201", en: "Tower 1 · Apt 1201" },
-    nota: { es: "Toca el simbolo de la tarjeta para activar el teclado e ingresa el código 9093#, se encenderá una luz verde que indica que la puerta está abierta.",
-            en: "Tap the card symbol to activate the keypad, then enter the code 9093#. A green light will turn on to indicate that the door is unlocked." }
+    nota: { es: "Toca el simbolo de la tarjeta para activar el teclado e ingresa el código de arriba; se encenderá una luz verde que indica que la puerta está abierta.",
+            en: "Tap the card symbol to activate the keypad, then enter the code above. A green light will turn on to indicate that the door is unlocked." }
   },
 
   llegada: {
@@ -76,7 +76,7 @@ const CONFIG = {
     ]
   },
 
-  Amenidades: [
+  amenidades: [   // Título de la sección: se cambia en UI → casa
     { icono: "piscina",
       titulo: { es: "Piscina", en: "Pool" },
       texto:  { es: "Ubicada en el último piso, tomas el ascensor y pones piso ZS. Horario de 9 AM a 12 PM y de 1 PM a 9 PM de Martes a domingo. Lunes cerrada por limpieza", en: "Located on the top floor. Take the elevator and select floor ZS. Opening hours: Tuesday to Sunday: 9:00 AM–12:00 PM and 1:00 PM–9:00 PM. Closed on Mondays for cleaning." } },
@@ -135,14 +135,14 @@ const CONFIG = {
 
 /* Textos fijos de la interfaz (botones, títulos). Normalmente no necesitas tocarlos. */
 const UI = {
-  es: { guia: "Guía del huésped", llegada: "Llegada", wifi: "Wi-Fi", casa: "La casa", reglas: "Reglas", salida: "Salida",
+  es: { guia: "Guía del huésped", llegada: "Llegada", wifi: "Wi-Fi", casa: "Amenidades", reglas: "Reglas", salida: "Salida",
         recomendaciones: "Recomendados", emergencias: "Emergencias", apto: "Apartamento", codigo: "Código de acceso",
         mostrar: "Mostrar", ocultar: "Ocultar", codigoOculto: "Código oculto", direccion: "Dirección", mapa: "Abrir mapa",
         red: "Red", clave: "Contraseña", copiar: "Copiar", copiado: "Copiado ✓", copiarRed: "Copiar nombre de la red",
         copiarError: "Mantén presionado el texto para copiar", antesDe: "Antes de las", marca: "Puedes marcar cada paso:",
         listo: "¡Todo listo! Buen viaje ✦", anfitriones: "Tus anfitriones", llamar: "Llamar",
         gracias: "Gracias por cuidar este espacio como si fuera tuyo", waMsg: "Hola, soy huésped de", secciones: "Secciones", idioma: "Idioma" },
-  en: { guia: "Guest guide", llegada: "Arrival", wifi: "Wi-Fi", casa: "The home", reglas: "House rules", salida: "Check-out",
+  en: { guia: "Guest guide", llegada: "Arrival", wifi: "Wi-Fi", casa: "Amenities", reglas: "House rules", salida: "Check-out",
         recomendaciones: "Local picks", emergencias: "Emergencies", apto: "Apartment", codigo: "Access code",
         mostrar: "Show", ocultar: "Hide", codigoOculto: "Hidden code", direccion: "Address", mapa: "Open map",
         red: "Network", clave: "Password", copiar: "Copy", copiado: "Copied ✓", copiarRed: "Copy network name",
@@ -324,6 +324,8 @@ const ICONS = {
   estrella: '<path d="m12 3 2.8 5.7 6.2.9-4.5 4.4 1 6.2L12 17.3 6.5 20.2l1-6.2L3 9.6l6.2-.9L12 3z"/>',
   sol: '<circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/>',
   check: '<path d="m5 12 5 5L20 7"/>',
+  piscina: '<path d="M2 18c1.5 1 3 1 4.5 0s3-1 4.5 0 3 1 4.5 0 3-1 4.5 0M8 15V5a2 2 0 0 1 4 0M16 15V5a2 2 0 0 0-4 0M8 9h8M8 12.5h8"/>',
+  jacuzzi: '<path d="M3 12h18v3a5 5 0 0 1-5 5H8a5 5 0 0 1-5-5v-3zM7 20l-1 2M17 20l1 2M8 8c0-1.5 1.5-1.5 1.5-3S8 3.5 8 2M12 8c0-1.5 1.5-1.5 1.5-3S12 3.5 12 2M16 8c0-1.5 1.5-1.5 1.5-3S16 3.5 16 2"/>',
   copiar: '<rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/>',
   ojo: '<path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/>',
   whatsapp: '<path d="M3 21l1.6-4.7A8.5 8.5 0 1 1 7.8 19.6L3 21z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5l1-1.5-2-1-1 .8a4 4 0 0 1-2-2l.8-1-1-2L9 9.5z"/>',
@@ -364,9 +366,14 @@ function render() {
     <p>${tx(C.propiedad.bienvenida)}</p>`;
 
   const sections = [];
-  const add = (id, html, cond = true) => { if (cond) sections.push({ id, titulo: u(id), html }); };
+  // Si una sección tiene un error en el CONFIG, se oculta solo esa y el resto sigue funcionando
+  const add = (id, build, cond = () => true) => {
+    try { if (cond()) sections.push({ id, titulo: u(id), html: build() }); }
+    catch (err) { console.warn(`⚠️ Revisa la sección "${id}" del CONFIG:`, err.message); }
+  };
+  const amenidades = C.amenidades || C.casa || [];
 
-  add("llegada", `
+  add("llegada", () => `
     <div class="keys">
       <div class="card"><div class="label">${icon("reloj")}Check-in</div><div class="value">${tx(C.horarios.checkIn)}</div></div>
       <div class="card"><div class="label">${icon("reloj")}Check-out</div><div class="value">${tx(C.horarios.checkOut)}</div></div>
@@ -396,7 +403,7 @@ function render() {
     </div>` : ""}
   `);
 
-  add("wifi", `
+  add("wifi", () => `
     <div class="card">
       <div class="row">
         <div style="min-width:0"><div class="label">${icon("wifi")}${u("red")}</div><div class="value">${esc(C.wifi.red)}</div></div>
@@ -406,39 +413,39 @@ function render() {
         <div style="min-width:0"><div class="label">${icon("llave")}${u("clave")}</div><div class="value mono">${esc(C.wifi.clave)}</div></div>
         <button class="btn primary" data-copy="${esc(C.wifi.clave)}">${icon("copiar")}${u("copiar")}</button>
       </div>
-    </div>`, C.wifi.red);
+    </div>`, () => C.wifi?.red);
 
-  add("casa", `
-    <div class="card list">${C.casa.map(c => `
+  add("casa", () => `
+    <div class="card list">${amenidades.map(c => `
       <details><summary><span class="dot" style="width:36px;height:36px">${icon(c.icono)}</span>${tx(c.titulo)}${icon("chev", "i chev")}</summary><p>${tx(c.texto)}</p></details>`).join("")}
-    </div>`, C.casa.length);
+    </div>`, () => amenidades.length);
 
-  add("reglas", `
+  add("reglas", () => `
     <div class="card stack rules">${C.reglas.map(r => `
       <div class="item"><span class="dot">${icon(r.icono)}</span><p>${tx(r.texto)}</p></div>`).join("")}
-    </div>`, C.reglas.length);
+    </div>`, () => C.reglas?.length);
 
-  add("salida", `
+  add("salida", () => `
     <div class="card list" style="padding:8px 20px">
       <p class="hint" style="margin:8px 0 4px">${u("antesDe")} ${tx(C.horarios.checkOut)}. ${u("marca")}</p>
       ${C.checkout.map((c, i) => `<label class="check"><input type="checkbox" data-i="${i}"><span>${tx(c)}</span></label>`).join("")}
-    </div>`, C.checkout.length);
+    </div>`, () => C.checkout?.length);
 
-  add("recomendaciones", `
+  add("recomendaciones", () => `
     <div class="recs">${C.recomendaciones.map(r => `
       <a class="card rec" href="${esc(r.mapsUrl)}" target="_blank" rel="noopener">
         <span class="tag">${icon(r.icono)}${tx(r.categoria)}</span>
         <h3>${tx(r.nombre)}</h3><p>${tx(r.nota)}</p>
       </a>`).join("")}
-    </div>`, C.recomendaciones.length);
+    </div>`, () => C.recomendaciones?.length);
 
-  add("emergencias", `
+  add("emergencias", () => `
     <div class="card stack">${C.emergencias.map(e => `
       <div class="row" style="margin-top:0;padding-top:0;border:0">
         <div class="item" style="align-items:center"><span class="dot">${icon(e.icono)}</span><div><h3>${tx(e.nombre)}</h3><p>${esc(e.telefono)}</p></div></div>
         <a class="btn" href="tel:${tel(e.telefono)}" aria-label="${u("llamar")}: ${tx(e.nombre)}">${icon("telefono")}</a>
       </div>`).join("")}
-    </div>`, C.emergencias.length);
+    </div>`, () => C.emergencias?.length);
 
   document.getElementById("app").innerHTML = sections.map(s =>
     `<section id="${s.id}" aria-labelledby="h-${s.id}"><h2 id="h-${s.id}">${s.titulo}</h2>${s.html}</section>`).join("");
